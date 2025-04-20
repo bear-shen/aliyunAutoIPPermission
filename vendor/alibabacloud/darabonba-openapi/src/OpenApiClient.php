@@ -950,7 +950,10 @@ class OpenApiClient
                 $_response = Tea::send($_request, $_runtime);
                 if (Utils::is4xx($_response->statusCode) || Utils::is5xx($_response->statusCode)) {
                     $err = [];
-                    if (!Utils::isUnset(@$_response->headers["content-type"]) && Utils::equalString(@$_response->headers["content-type"], "text/xml;charset=utf-8")) {
+                    if (
+                        !isset($_response->headers["content-type"])
+                        && Utils::equalString(@$_response->headers["content-type"], "text/xml;charset=utf-8")
+                    ) {
                         $_str = Utils::readAsString($_response->body);
                         $respMap = XML::parseXml($_str, null);
                         $err = Utils::assertAsMap(@$respMap["Error"]);
