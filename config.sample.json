@@ -1,0 +1,13 @@
+{
+  "endPoint"       : "ecs.***.aliyuncs.com",
+  "RegionId"       : "cn-***",
+  "NicType"        : "internet",
+  "Direction"      : "all",
+  "SecurityGroupId": "**-*******",
+  "credential"     : {
+	"type"             : "access_key",
+	"access_key_id"    : "",
+	"access_key_secret": ""
+  },
+  "accessToken"    : "114514"
+}

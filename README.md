@@ -4,13 +4,15 @@
 
 没办法，自己写一个吧
 
+安全是肯定不安全，但是个人用用就这样吧
+
 调用的是安全组API的 [原生方法](https://help.aliyun.com/zh/ecs/user-guide/overview-44)
 
 配置项写在 config.json ，请求通过静态的 accessToken 验证
 
 根据 OpenAPI 门户的 [DEMO](https://api.aliyun.com/api/Ecs/2014-05-26/AuthorizeSecurityGroup?useCommon=true) 改的
 
-php 的 sdk 有各种会导致不能运行的问题，如[这种](https://github.com/aliyun/openapi-sdk-php/issues/208)，本地反正 8.1.22 跑不起来。。。
+php 的 sdk 有各种会导致不能运行的问题，如 [这种](https://github.com/aliyun/openapi-sdk-php/issues/208) ，本地反正 8.1.22 跑不起来。。。
 
 改了改勉强能跑，所以带 vender 提交
 
