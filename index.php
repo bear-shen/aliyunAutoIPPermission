@@ -141,12 +141,18 @@ function getUserIp() {
     ];
     if (isset($_SERVER)) {
         foreach ($defKey as $k) {
-            if (isset($_SERVER[$k])) return $_SERVER[$k];
+            if (!empty($_SERVER[$k])) {
+$v=explode(',',$_SERVER[$k]);
+return $v[0];
+}
         }
     }
     foreach ($defKey as $k) {
         $v = getenv($k);
-        if ($v) return $v;
+        if ($v) {
+$v=explode(',',$v);
+return $v[0];
+}
     }
 }
 

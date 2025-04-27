@@ -10,7 +10,7 @@
 
 配置项写在 config.json ，请求通过静态的 accessToken 验证
 
-请求方式如 /index.php?token={accessToken}&comment={comment}
+请求方式如 /index.php?token={accessToken}&target={comment}
 
 根据 OpenAPI 门户的 [DEMO](https://api.aliyun.com/api/Ecs/2014-05-26/AuthorizeSecurityGroup?useCommon=true) 改的
 
