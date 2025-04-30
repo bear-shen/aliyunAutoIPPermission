@@ -21,8 +21,9 @@ if (!empty($ifJsonContent)) {
     if ($ifJsonContent) $request = $ifJsonContent += $request;
 }
 $request += [
-    'token'  => '',
-    'target' => '',
+    'token'    => '',
+    'target'   => '',
+    'redirect' => '',
 ];
 //
 $config = json_decode(
@@ -96,6 +97,9 @@ $resp = makeRequest(
     $client, 'AuthorizeSecurityGroup', $requestParam
 );
 if (empty($resp)) die('add failed');
+if (!empty($request['redirect'])) {
+    header('Location: ' . $request['redirect']);
+}
 die('success');
 
 function makeRequest($client, $method, $queries, $version = '2014-05-26') {
@@ -142,17 +146,17 @@ function getUserIp() {
     if (isset($_SERVER)) {
         foreach ($defKey as $k) {
             if (!empty($_SERVER[$k])) {
-$v=explode(',',$_SERVER[$k]);
-return $v[0];
-}
+                $v = explode(',', $_SERVER[$k]);
+                return $v[0];
+            }
         }
     }
     foreach ($defKey as $k) {
         $v = getenv($k);
         if ($v) {
-$v=explode(',',$v);
-return $v[0];
-}
+            $v = explode(',', $v);
+            return $v[0];
+        }
     }
 }
 
